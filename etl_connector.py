@@ -44,7 +44,7 @@ def transform_data(data):
     print("Transformation successful!")
     return transformed_records
 
-# --- 3. LOAD ---
+
 def load_data(data):
     """Loads transformed data into MongoDB."""
     if not data:
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     if not nasa_api_key:
         print("Fatal Error: NASA_API_KEY is not set in your .env file.")
     else:
-        extracted_data = extract_apod_data(nasa_api_key, count=5)
+        extracted_data = extract_apod_data(nasa_api_key, count=25)
         if extracted_data:
             transformed_data = transform_data(extracted_data)
             load_data(transformed_data)
